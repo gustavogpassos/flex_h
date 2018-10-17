@@ -1,0 +1,32 @@
+/**
+Custom css for application
+ */
+
+span{
+    font-weight: bold;
+}
+
+.row{
+    padding: 5px;
+}
+
+@media (max-width: 993px) {
+    .tabprec{
+        display: none;
+    }
+    .container{
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-tabs > .nav-item{
+        width: 100%;
+    }
+    .hide-mob{
+        display: none;
+    }
+    .col{
+        flex-basis: unset;
+    }
+}

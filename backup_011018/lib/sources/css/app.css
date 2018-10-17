@@ -1,0 +1,13 @@
+/**
+Custom css for application
+ */
+
+span{
+    font-weight: bold;
+}
+
+@media (max-width: 993px) {
+    .tabprec{
+        display: none;
+    }
+}
