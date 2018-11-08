@@ -50,8 +50,9 @@ class AtendModel extends Conexao
     public function getFlex($cdFlex)
     {
         //echo '<script>console.log("estou na função getFlex() no model");</script>';
-        $select = "SELECT *
-                       FROM flex_formulario
+        $select = "SELECT form.*, mot.descricao as motivo
+                       FROM flex_formulario form
+                       left join flex_motivo mot on (form.cd_motivo=mot.cd_motivo)
                        WHERE cd_flex=:cdFlex";
         $query = $this->flex->prepare($select);
         if ($query->execute(array('cdFlex' => $cdFlex))) {

@@ -100,32 +100,40 @@ if (isset($dados) && count($dados) > 1) {
                     <tr>
                         <td><span>Senha</span></td>
                         <td><input name="nr_senha" class="form-control" disabled="true"
-                                   value="<?php echo (stristr($value['nr_senha'], 'Negado'))?"Negado":number_format($value['nr_senha'],2,'.',''); ?>"></td>
+                                   value="<?php echo (stristr($value['nr_senha'], 'Negado')) ? "Negado" : number_format($value['nr_senha'], 2, '.', ''); ?>">
+                        </td>
                         <td></td>
                         <td class="tabprec"></td>
                         <td></td>
                         <td></td>
                     </tr>
                 <?php } ?>
-                <tr>
-                    <td colspan="6">
-                        <span>Observações loja</span><br/>
-                        <textarea class="form-control"
-                                  name="obsloja" <?php echo ($dados['status'] > 0) ? "readonly" : ""; ?>><?php echo $dados['obsloja']; ?></textarea>
-                    </td>
-                </tr>
-                <?php if (isset($dados['obsmatriz'])) { ?>
-                    <tr>
-                        <td colspan="6">
-                            <span>Observações matriz</span><br/>
-                            <textarea class="form-control" name="obsmatriz"
-                                      placeholder="Observações adicionais"
-                                      readonly><?php echo $dados['obsmatriz']; ?></textarea>
-                        </td>
-                    </tr>
-                <?php } ?>
                 </tbody>
             </table>
+            <div class="row">
+                <div class="col-md-12">
+                    <span>Observações loja</span><br/>
+                    <textarea class="form-control"
+                              name="obsloja" <?php echo ($dados['status'] > 0) ? "readonly" : ""; ?>><?php echo $dados['obsloja']; ?></textarea>
+                </div>
+            </div>
+            <?php if (isset($dados['obsmatriz'])) { ?>
+                <div class="row">
+                    <div class="col-md-12">
+                        <span>Observações matriz</span><br/>
+                        <textarea class="form-control" name="obsmatriz"
+                                  placeholder="Observações adicionais"
+                                  readonly><?php echo $dados['obsmatriz']; ?></textarea>
+                    </div>
+                </div>
+            <?php } ?>
+            <div class="row">
+                <div class="col-md-5">
+                    <span>Motivo</span><br/>
+                    <input class="form-control" name="motivo"
+                           value="<?php echo isset($dados['motivo']) ? $dados['motivo'] : ''; ?>" readonly>
+                </div>
+            </div>
         </div>
     </div>
 <?php } ?>

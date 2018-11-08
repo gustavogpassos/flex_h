@@ -174,6 +174,12 @@ if (isset($dados) && count($dados) > 1) {
                     </div>
                 <?php } ?>
                 <div class="row">
+                    <div class="col-md-4">
+                        <span>Motivo</span><br/>
+                        <input class="form-control" name="motivo" value="<?php echo isset($dados['motivo'])?$dados['motivo']:''; ?>" readonly>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-sm-3">
                         <?php if ($dados['status'] == 1 && $_SESSION['tp_usuario'] != 'regional') { ?>
                             <a href="home.php?action=assumir&idflex=<?php echo $dados['cd_flex']; ?>"

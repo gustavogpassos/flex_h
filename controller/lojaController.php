@@ -44,6 +44,7 @@ class LojaController
                 echo "<script>window.alert('Pedido não encontrado!Verifique.');</script>";
             } else {
                 $dados['produtos'] = $this->model->getProdutosPedido($_POST['nr_pedido']);
+                $listMotivos = $this->model->getListaMotivos();
 
             }
         }
@@ -60,6 +61,7 @@ else if ($dados['dt_pedido'] != date('Y-m-d', time())) {
 
     public function gravar()
     {
+
         $produtos['cd_produto']=$_POST['cd_produto'];
         $produtos['nm_produto']=$_POST['nm_produto'];
         $produtos['fl_foralinha']=$_POST['fl_foralinha'];

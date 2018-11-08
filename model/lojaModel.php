@@ -44,12 +44,13 @@ class LojaModel extends Conexao
     function insertFlex($dados)
     {
         $insert = "SELECT insertflex(:cd_filial, :cd_supefili, :nm_supefili, :nr_pedido, :cd_cliente, :nm_cliente," .
-            ":cd_condpgto, :nm_condpgto, :cd_tipocobr, :nm_tipocobr, :observacao);";
+            ":cd_condpgto, :nm_condpgto, :cd_tipocobr, :nm_tipocobr, :observacao, :motivo);";
 
         $query = $this->flex->prepare($insert);
         if ($query->execute($dados)) {
             return $query->fetch();
         } else {
+            echo "deu ruim";
             print_r($query->errorInfo());
         }
     }
@@ -141,8 +142,11 @@ class LojaModel extends Conexao
      */
     public function getFlex($cdFlex)
     {
-        echo '<script>console.log("estou na função getFlex() no model");</script>';
-        $select = "SELECT * FROM flex_formulario WHERE cd_flex=:cdFlex";
+        //echo '<script>console.log("estou na função getFlex() no model");</script>';
+        $select = "SELECT form.*, mot.descricao as motivo
+                       FROM flex_formulario form
+                       left join flex_motivo mot on (form.cd_motivo=mot.cd_motivo)
+                       WHERE cd_flex=:cdFlex";
         $query = $this->flex->prepare($select);
         $query->execute(array('cdFlex' => $cdFlex));
         //print_r($query);
@@ -167,6 +171,18 @@ class LojaModel extends Conexao
     }
 
     /**
+     * Função que retorna todos os motivos cadastrados na tabela flex_motivo na base de dados do flex
+     * @return array
+     *
+     */
+    function getListaMotivos(){
+        $select = "select * from flex_motivo where fl_ativo='S'";
+        $query  = $this->flex->query($select);
+        return $query->fetchAll();
+
+    }
+
+    /**
      * retorna quantas solicitações estao registradas com base no status
      * @param $status
      * @return mixed
@@ -181,7 +197,7 @@ class LojaModel extends Conexao
 
 
     // ***************************************************************** //
-    // SEÇÃO DAS CONSULTAS REALIZADAS NA BASE DA MATRIZ - SOLIDUS MATRIZ //
+    // SEÇÃO DAS CONSULTAS REALIZADAS NA BASE DA MATRIZ - SOLIDUS FILIAL //
     // ***************************************************************** //
 
     /**
@@ -253,6 +269,11 @@ class LojaModel extends Conexao
         return $query->fetchAll();
     }
 
+
+    // ***************************************************************** //
+    // SEÇÃO DAS CONSULTAS REALIZADAS NA BASE DA FILIAL - SOLIDUS FILIAL //
+    // ***************************************************************** //
+
     /**
      * retorna o email do supervisor regional pertencente a filial informada
      * @param $cdFilial
@@ -263,22 +284,6 @@ class LojaModel extends Conexao
         $select = 'SELECT lower(sup.e_mail) AS email FROM supefili sup, adm_fili fil WHERE fil.cd_supefili=sup.cd_supefili AND fil.cd_filial=:cd_filial';
         $query = $this->solidus->prepare($select);
         $query->execute(array('cd_filial' => $cdFilial));
-        return $query->fetch();
-    }
-
-
-
-
-
-    // ***************************************************************** //
-    // SEÇÃO DAS CONSULTAS REALIZADAS NA BASE DA FILIAL - SOLIDUS FILIAL //
-    // ***************************************************************** //
-
-
-    function testefilial()
-    {
-        $sql = "SELECT nr_pedido,cd_cliente,vl_tot_nota, dt_pedido FROM nfsc WHERE nr_pedido=468731";
-        $query = $this->filial->query($sql);
         return $query->fetch();
     }
 

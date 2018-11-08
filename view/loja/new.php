@@ -12,11 +12,11 @@
 //print_r(var_dump($today));
 ?>
 <script>
-$._keypress(function (event) {
-    if(event.keyCode==10 || event.keyCode==13){
-        event.preventDefault();
-    }
-});
+    $._keypress(function (event) {
+        if (event.keyCode == 10 || event.keyCode == 13) {
+            event.preventDefault();
+        }
+    });
 </script>
 
 <h1>Nova solicitação</h1>
@@ -158,45 +158,58 @@ $._keypress(function (event) {
                             allowEmpty: true
                         });
 
- //                       $(document).ready(function () {
- //                           //set initial state.
-//
- //                           $('#nodesc<?php echo $key; ?>').change(function () {
- //                               if (this.checked) {
- //                                   var returnVal = confirm("Voce tem certeza?");
- //                                   $(this).prop("checked", returnVal);
- //                                   $('#vl_desc<?php echo $key; ?>').prop('readonly', true);
- //                                   $('#vl_desc<?php echo $key; ?>').prop('value', '0');
- //                                   $('#vl_desc<?php echo $key; ?>').prop('required', false);
- //                               }
- //                               if (!this.checked) {
- //                                   var returnVal = confirm("Voce tem certeza?");
- //                                   $(this).prop("checked", returnVal);
- //                                   $('#vl_desc<?php echo $key; ?>').prop('readonly', false);
- //                                   $('#vl_desc<?php echo $key; ?>').prop('required', true);
- //                               }
-//
- //                           });
- //                       });
+                        //                       $(document).ready(function () {
+                        //                           //set initial state.
+                        //
+                        //                           $('#nodesc<?php echo $key; ?>').change(function () {
+                        //                               if (this.checked) {
+                        //                                   var returnVal = confirm("Voce tem certeza?");
+                        //                                   $(this).prop("checked", returnVal);
+                        //                                   $('#vl_desc<?php echo $key; ?>').prop('readonly', true);
+                        //                                   $('#vl_desc<?php echo $key; ?>').prop('value', '0');
+                        //                                   $('#vl_desc<?php echo $key; ?>').prop('required', false);
+                        //                               }
+                        //                               if (!this.checked) {
+                        //                                   var returnVal = confirm("Voce tem certeza?");
+                        //                                   $(this).prop("checked", returnVal);
+                        //                                   $('#vl_desc<?php echo $key; ?>').prop('readonly', false);
+                        //                                   $('#vl_desc<?php echo $key; ?>').prop('required', true);
+                        //                               }
+                        //
+                        //                           });
+                        //                       });
                     </script>
 
                 <?php } ?>
-                <tr>
-
-                    <td colspan="6">
-                        <span>Observações loja</span>
-                        <textarea class="form-control" name="observacao"></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="submit" class="btn btn-success" value="Enviar">
-                        <a href="home.php?action=novo" class="btn btn-warning">Cancelar</a>
-                    </td>
-                </tr>
 
                 </tbody>
             </table>
+
+
+            <div class="row">
+                <div class="col col-lg-12">
+                    <span>Observações loja</span>
+                    <textarea class="form-control" name="observacao"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-lg-5">
+                    <span>Motivo</span>
+                    <select class="form-control" name="motivo">
+                        <option value="">Selecione um motivo</option>
+                        <?php foreach ($listMotivos as $motivo){ ?>
+                            <option value="<?php echo $motivo['cd_motivo'] ?>"><?php echo $motivo['descricao']; ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-lg-5">
+                    <input type="submit" class="btn btn-success" value="Enviar">
+                    <a href="home.php?action=novo" class="btn btn-warning">Cancelar</a>
+                </div>
+            </div>
+
         </div>
     </form>
 </div>
