@@ -18,7 +18,7 @@ if (isset($dados) && count($dados) > 1) {
 
     <h1>Flex <?php echo $dados['cd_flex'] . '  Filial ' . $dados['cd_filial']; ?></h1>
     <h6>Abertura <?php echo date('d/m/Y H:i', strtotime($dados['data_solicitacao'])); ?></h6>
-    <?php echo 'Responsável: '.$dados['nome']; ?>
+    <?php //echo 'Responsável: '.$dados['nome']; ?>
     <hr/>
     <div class="container">
         <a href="home.php" class="btn btn-primary">Voltar</a>
@@ -175,8 +175,10 @@ if (isset($dados) && count($dados) > 1) {
                 <?php } ?>
                 <div class="row">
                     <div class="col-md-4">
+                        <!--
                         <span>Motivo</span><br/>
-                        <input class="form-control" name="motivo" value="<?php echo isset($dados['motivo'])?$dados['motivo']:''; ?>" readonly>
+                        <input class="form-control" name="motivo" value="<?php //echo isset($dados['motivo'])?$dados['motivo']:''; ?>" readonly>
+                        -->
                     </div>
                 </div>
                 <div class="row">

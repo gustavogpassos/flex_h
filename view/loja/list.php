@@ -35,8 +35,15 @@
             <tr>
                 <td><?php echo $value['cd_flex']; ?></td>
                 <td>Filial <?php echo $value['cd_filial']; ?></td>
-                <td><?php echo date('d/m/Y H:m',strtotime($value['data_solicitacao'])); ?></td>
-                <td><?php echo ($value['status']==2)?'Em atendimento':($value['status']==3)?'Respondido':'Novo'; ?></td>
+                <td><?php echo date('d/m/Y H:i',strtotime($value['data_solicitacao'])); ?></td>
+                <td><?php
+                    if($value['status']==2) {
+                        echo 'Em atendimento';
+                       } else if($value['status']==3){
+                        echo 'Respondido';
+                       }else{
+                        echo 'Novo';
+                    } ?></td>
                 <td>
                     <a href="home.php?action=detalhe&idflex=<?php echo $value['cd_flex']; ?>" class="btn btn-outline-primary">Detalhes...</a>
                 </td>

@@ -18,7 +18,7 @@ class Conexao {
             $this->solidus = new PDO(
                 $dsnsolidus,'postgres','postgres'
             );
-            $dsnflex = 'pgsql:host=localhost;dbname=flex_homolog';
+            $dsnflex = 'pgsql:host=localhost;dbname=flex';
             $this->flex = new PDO(
                 $dsnflex,'postgres','postgres'
             );

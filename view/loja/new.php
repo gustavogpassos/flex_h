@@ -194,13 +194,16 @@
             </div>
             <div class="row">
                 <div class="col col-lg-5">
+                    <input type="hidden" name="motivo" value="1">
+                    <!--
                     <span>Motivo</span>
                     <select class="form-control" name="motivo">
                         <option value="">Selecione um motivo</option>
-                        <?php foreach ($listMotivos as $motivo){ ?>
-                            <option value="<?php echo $motivo['cd_motivo'] ?>"><?php echo $motivo['descricao']; ?></option>
-                        <?php } ?>
+                        <?php //foreach ($listMotivos as $motivo){ ?>
+                            <option value="<?php //echo $motivo['cd_motivo'] ?>"><?php //echo $motivo['descricao']; ?></option>
+                        <?php// } ?>
                     </select>
+                    -->
                 </div>
             </div>
             <div class="row">

@@ -124,7 +124,7 @@ class AtendController
                 //echo '<script>console.log('.print_r($_POST['observacao']).');</script>';
                 foreach ($produtos as $key => $value) {
                     if ($ret = $this->model->gravarSenha($_POST['cd_flex'], $produtos[$key], $senhas[$key], $obsmatriz)) {
-                        print_r($ret);
+                        //print_r($ret);
                         $sucesso += 1;
                     }
                 }

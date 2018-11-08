@@ -6,7 +6,6 @@
  * Time: 14:34
  */
 ?>
-
 <h1>Lista de solicitações</h1>
 <hr/>
 <ul class="nav nav-tabs">
