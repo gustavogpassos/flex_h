@@ -10,6 +10,11 @@ span{
     padding: 5px;
 }
 
+.vl-flex td{
+    font-size: 10pt;
+    text-align: right;
+}
+
 @media (max-width: 993px) {
     .tabprec{
         display: none;

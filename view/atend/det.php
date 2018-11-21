@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Created by PhpStorm.
  * User: PC
@@ -138,7 +138,7 @@ if (isset($dados) && count($dados) > 1) {
                                                    value="<?php echo (stristr($value['nr_senha'], 'Negado')) ? "Negado" : number_format($value['nr_senha'], 2, '.', ''); ?>"
                                                    required=""></td>
                             <td class="tabprec"></td>
-                            <?php if ($dados['status'] == 2 && $_SESSION['tp_usuario'] != 'regional') { ?>
+                            <?php if ($dados['status'] == 2) { ?>
                                 <td>
                                     <button type="button" class="btn btn-success"
                                             onclick="gerasenha(<?php echo $key; ?>)">
@@ -175,15 +175,14 @@ if (isset($dados) && count($dados) > 1) {
                 <?php } ?>
                 <div class="row">
                     <div class="col-md-4">
-                        <!--
                         <span>Motivo</span><br/>
-                        <input class="form-control" name="motivo" value="<?php //echo isset($dados['motivo'])?$dados['motivo']:''; ?>" readonly>
-                        -->
+                        <input class="form-control" name="motivo" value="<?php echo isset($dados['motivo'])?$dados['motivo']:''; ?>" readonly>
+
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-3">
-                        <?php if ($dados['status'] == 1 && $_SESSION['tp_usuario'] != 'regional') { ?>
+                        <?php if ($dados['status'] == 1) { ?>
                             <a href="home.php?action=assumir&idflex=<?php echo $dados['cd_flex']; ?>"
                                class="btn btn-primary">Assumir</a>
                         <?php } else if ($dados['status'] != 3 && $_SESSION['tp_usuario'] != 'regional') { ?>

@@ -129,11 +129,10 @@ if (isset($dados) && count($dados) > 1) {
             <?php } ?>
             <div class="row">
                 <div class="col-md-5">
-                    <!--
                     <span>Motivo</span><br/>
                     <input class="form-control" name="motivo"
-                           value="<?php //echo isset($dados['motivo']) ? $dados['motivo'] : ''; ?>" readonly>
-                           -->
+                           value="<?php echo isset($dados['motivo']) ? $dados['motivo'] : ''; ?>" readonly>
+
                 </div>
             </div>
         </div>

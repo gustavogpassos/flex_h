@@ -41,6 +41,14 @@ class AtendController
         if ($_SESSION['tp_usuario'] == 'regional') {
             $filiais = implode(",", $_SESSION['filiais']);
         }
+        $vlFlex=null;
+        if($_SESSION['tp_usuario'] == 'regional'){
+            echo "<script>console.log('estou aqui');</script>";
+            $vlFlex = $this->model->getValorFlex($_SESSION['cd_supefili']);
+        }else{
+            echo "<script>console.log('Não, eu estou aqui');</script>";
+            $vlFlex = $this->model->getValorFlex();
+        }
         $listaFlex = $this->model->getListaFlex($status, $filiais);
         require "./view/atend/list.php";
     }
@@ -118,6 +126,7 @@ class AtendController
 
             if (isset($_POST['cd_produto'])) {
                 $produtos = $_POST['cd_produto'];
+
                 $senhas = $_POST['nr_senha'];
                 $obsmatriz = $_POST['obsmatriz'].' - '.$_SESSION['nome_usuario'];
                 //echo '<script>console.log('.print_r($_POST['nr_senha']).');</script>';

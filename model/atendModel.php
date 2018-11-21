@@ -25,11 +25,11 @@ class AtendModel extends Conexao
         $param = array('status' => $status);
         if (isset($_SESSION['cd_usuario']) && $_SESSION['tp_usuario'] == 'regional' && $filiais != 0) {
             $select = "SELECT * FROM flex_formulario WHERE status=:status and cd_filial in (" . $filiais . ") ORDER BY cd_flex DESC";
-        }else{
-            if($status == 2){
+        } else {
+            if ($status == 2) {
                 $select = "SELECT * FROM flex_formulario WHERE status=:status and cd_atendente=:cd_usuario ORDER BY cd_flex DESC";
-                $param['cd_usuario']=$_SESSION['cd_usuario'];
-            }else {
+                $param['cd_usuario'] = $_SESSION['cd_usuario'];
+            } else {
                 $select = "SELECT * FROM flex_formulario WHERE status=:status ORDER BY cd_flex DESC";
             }
         }
@@ -80,7 +80,13 @@ class AtendModel extends Conexao
         }
     }
 
-
+    /**
+     * Essa função é responsável por alterar a coluna status e cd_atendente da tabela flex_formulario
+     *
+     * @param $cd_flex
+     * @param $cd_usuario
+     * @return bool
+     */
     public function assumir($cd_flex, $cd_usuario)
     {
         $update = "update flex_formulario set status=2, cd_atendente=:cd_usuario where cd_flex=:cd_flex";
@@ -92,6 +98,15 @@ class AtendModel extends Conexao
         }
     }
 
+    /**
+     * Essa função é responsável por gravar o numero da senha ou a palavra negado para os produtos da solicitação
+     * Essa função altera a tabela flex_produto
+     * @param $cd_flex
+     * @param $cd_produto
+     * @param $senha
+     * @param $obs
+     * @return bool
+     */
     public function gravarSenha($cd_flex, $cd_produto, $senha, $obs)
     {
         $update = "select gravasenha(:nr_senha, :cd_flex, :cd_produto, :observacao)";
@@ -104,13 +119,43 @@ class AtendModel extends Conexao
 
     }
 
-    public function flexPorCliente($cd_cliente, $cd_flex){
+    /**
+     * Essa função retorna se há solicitações registradas para um determinado cliente (código) passado por parâmetro
+     * O retorno desconsidera a solicitação que está sendo acessada e retorna somente as solicitações com numero diferente
+     * @param $cd_cliente
+     * @param $cd_flex
+     * @return mixed
+     */
+    public function flexPorCliente($cd_cliente, $cd_flex)
+    {
         $select = "select cd_flex from flex_formulario where cd_cliente=:cd_cliente and cd_flex!=:cd_flex and data_solicitacao >= current_date -30";
         $query = $this->flex->prepare($select);
-        if($query->execute(array('cd_cliente'=>$cd_cliente,'cd_flex'=>$cd_flex))){
+        if ($query->execute(array('cd_cliente' => $cd_cliente, 'cd_flex' => $cd_flex))) {
             return $query->fetchAll();
-        }else{
+        } else {
             return $query->errorInfo();
         }
+    }
+
+    public function getValorFlex($cd_supefili = 0)
+    {
+        $select = "SELECT
+                    flex_formulario.cd_supefili as regional,
+                    sum(flex_produto.vl_minimo - flex_produto.vl_desconto) as vl_flex,
+                    flex_usuario.limite
+                    FROM flex_formulario
+                    JOIN flex_produto on ( flex_formulario.cd_flex=flex_produto.cd_flex )
+                    JOIN flex_usuario on ( flex_usuario.cd_supefili=flex_formulario.cd_supefili)
+                    WHERE flex_produto.nr_senha <> 'Negado'
+                    AND flex_produto.nr_senha <> '0.00'
+                    AND flex_produto.dt_liberacao=current_date ";
+        if ($cd_supefili != 0) {
+            $select .= "AND flex_formulario.cd_supefili=$cd_supefili ";
+        }
+        $select .= "GROUP BY flex_formulario.cd_supefili, flex_usuario.limite
+                    ORDER BY flex_formulario.cd_supefili";
+
+        $query = $this->flex->query($select);
+        return $query->fetchAll();
     }
 }

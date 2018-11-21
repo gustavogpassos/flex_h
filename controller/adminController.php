@@ -34,6 +34,7 @@ class AdminController
                 $_SESSION['tp_usuario'] = $user['tp_usuario'];
                 $_SESSION['nome_usuario'] = $user['nome'];
                 if($user['tp_usuario']=='regional'){
+                    $_SESSION['cd_supefili'] = $user['cd_supefili'];
                     $_SESSION['filiais'] = array();
                     if($list_temp=$this->model->getFiliaisSup($user['usuario'])){
                         foreach ($list_temp as $filial){
