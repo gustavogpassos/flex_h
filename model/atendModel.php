@@ -146,8 +146,10 @@ class AtendModel extends Conexao
                     FROM flex_formulario
                     JOIN flex_produto on ( flex_formulario.cd_flex=flex_produto.cd_flex )
                     JOIN flex_usuario on ( flex_usuario.cd_supefili=flex_formulario.cd_supefili)
+                    JOIN flex_motivo on (flex_formulario.cd_motivo=flex_motivo.cd_motivo)
                     WHERE flex_produto.nr_senha <> 'Negado'
                     AND flex_produto.nr_senha <> '0.00'
+                    AND flex_motivo.fl_calcula='S'
                     AND flex_produto.dt_liberacao=current_date ";
         if ($cd_supefili != 0) {
             $select .= "AND flex_formulario.cd_supefili=$cd_supefili ";

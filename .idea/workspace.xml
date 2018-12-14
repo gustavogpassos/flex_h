@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="566789ba-f998-488f-b38a-0ea97b81e721" name="Default" comment="Alteração 08/11/2018 2.&#10;Adicionado campo motivo da solicitação.&#10;Ajustes antes da implantação definitiva.">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/adminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/atendController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/atendController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/sources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/lib/sources/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/atendModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/atendModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/atend/det.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/atend/det.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/atend/list.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/atend/list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/loja/det.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/loja/det.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/loja/new.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/loja/new.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,19 +17,22 @@
     <session id="-781807376">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="25" />
+          <entry key="project.closed" value="29" />
           <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.19" value="1" />
+          <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.32" value="1" />
+          <entry key="project.open.time.35" value="1" />
           <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.38" value="2" />
           <entry key="project.open.time.39" value="1" />
-          <entry key="project.open.time.40" value="1" />
-          <entry key="project.open.time.42" value="1" />
+          <entry key="project.open.time.40" value="2" />
+          <entry key="project.open.time.42" value="2" />
           <entry key="project.open.time.43" value="1" />
           <entry key="project.open.time.46" value="1" />
           <entry key="project.open.time.47" value="2" />
@@ -47,7 +44,7 @@
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.74" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="26" />
+          <entry key="project.opened" value="31" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -63,7 +60,7 @@
           <entry key="CSS" value="4" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="1" />
-          <entry key="PHP" value="69" />
+          <entry key="PHP" value="74" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -79,9 +76,9 @@
           <entry key="CSS" value="220" />
           <entry key="HTML" value="1" />
           <entry key="JSON" value="21" />
-          <entry key="PHP" value="7991" />
+          <entry key="PHP" value="8013" />
           <entry key="PLAIN_TEXT" value="113" />
-          <entry key="SQL" value="20" />
+          <entry key="SQL" value="22" />
         </counts>
       </usages-collector>
     </session>
@@ -89,28 +86,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/loja/new.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3104">
-              <caret line="199" column="71" selection-start-line="199" selection-start-column="71" selection-end-line="199" selection-end-column="71" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/loja/det.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2048">
-              <caret line="133" column="40" selection-start-line="133" selection-start-column="40" selection-end-line="133" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/view/atend/det.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="656">
-              <caret line="178" column="79" selection-start-line="178" selection-start-column="79" selection-end-line="178" selection-end-column="79" />
+            <state relative-caret-position="304">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="e#0#6#0" expanded="true" />
               </folding>
@@ -118,20 +97,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/lojaController.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/view/atend/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="51" column="43" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
+            <state relative-caret-position="320">
+              <caret line="37" column="102" selection-start-line="37" selection-start-column="102" selection-end-line="37" selection-end-column="102" />
+              <folding>
+                <element signature="n#style#0;n#h3#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/lojaModel.php">
+        <entry file="file://$PROJECT_DIR$/controller/atendController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2832">
-              <caret line="177" column="13" selection-start-line="177" selection-start-column="13" selection-end-line="177" selection-end-column="13" />
+            <state relative-caret-position="265">
+              <caret line="43" column="21" lean-forward="true" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -170,14 +152,14 @@
         <option value="$PROJECT_DIR$/view/loja/list.php" />
         <option value="$PROJECT_DIR$/model/conexao.php" />
         <option value="$PROJECT_DIR$/controller/adminController.php" />
-        <option value="$PROJECT_DIR$/model/atendModel.php" />
         <option value="$PROJECT_DIR$/controller/atendController.php" />
         <option value="$PROJECT_DIR$/lib/sources/css/app.css" />
         <option value="$PROJECT_DIR$/lib/sources/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/view/atend/list.php" />
         <option value="$PROJECT_DIR$/view/loja/new.php" />
         <option value="$PROJECT_DIR$/view/loja/det.php" />
         <option value="$PROJECT_DIR$/view/atend/det.php" />
+        <option value="$PROJECT_DIR$/model/atendModel.php" />
+        <option value="$PROJECT_DIR$/view/atend/list.php" />
       </list>
     </option>
   </component>
@@ -252,6 +234,11 @@
               <item name="view" type="462c0819:PsiDirectoryNode" />
               <item name="loja" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="flex_h" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flex_h" type="462c0819:PsiDirectoryNode" />
+              <item name="ws" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -315,7 +302,12 @@
       <workItem from="1541676420139" duration="13799000" />
       <workItem from="1541758384140" duration="10766000" />
       <workItem from="1542713806807" duration="5013000" />
-      <workItem from="1542806378225" duration="386000" />
+      <workItem from="1542806378225" duration="1014000" />
+      <workItem from="1542825487902" duration="617000" />
+      <workItem from="1542885148009" duration="729000" />
+      <workItem from="1544559303984" duration="556000" />
+      <workItem from="1544805820324" duration="69000" />
+      <workItem from="1544806085572" duration="3088000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1541423165756</created>
@@ -338,11 +330,18 @@
       <option name="project" value="LOCAL" />
       <updated>1541708893056</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Alteração 08/11/2018 2.&#10;Adicionado campo motivo da solicitação.&#10;Ajustes antes da implantação definitiva.">
+      <created>1542806790889</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1542806790889</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108386000" />
+    <option name="totallyTimeSpent" value="114073000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -354,10 +353,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22692889" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24508321" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -475,31 +474,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/atend/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="49" column="53" selection-start-line="49" selection-start-column="53" selection-end-line="49" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/atendModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2240">
-          <caret line="140" column="5" selection-start-line="140" selection-start-column="5" selection-end-line="140" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/adminController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-32">
           <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/atendController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="43" column="21" lean-forward="true" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -517,26 +495,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/model/lojaModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="162" column="7" lean-forward="true" selection-start-line="162" selection-start-column="7" selection-end-line="162" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controller/lojaController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
+        <state relative-caret-position="531">
           <caret line="51" column="43" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/lojaModel.php">
+    <entry file="file://$PROJECT_DIR$/ws/comunicaws.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2832">
-          <caret line="177" column="13" selection-start-line="177" selection-start-column="13" selection-end-line="177" selection-end-column="13" />
+        <state relative-caret-position="256">
+          <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/atendModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="154" column="71" lean-forward="true" selection-start-line="154" selection-start-column="71" selection-end-line="154" selection-end-column="71" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/atend/det.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="178" column="79" selection-start-line="178" selection-start-column="79" selection-end-line="178" selection-end-column="79" />
+        <state relative-caret-position="304">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
           <folding>
             <element signature="e#0#6#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/atendController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="43" column="21" lean-forward="true" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/atend/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="37" column="102" selection-start-line="37" selection-start-column="102" selection-end-line="37" selection-end-column="102" />
+          <folding>
+            <element signature="n#style#0;n#h3#0;n#div#2;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

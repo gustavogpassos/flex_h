@@ -35,7 +35,7 @@
                                             R$&nbsp;<?php echo number_format($tmp['limite'], 2, ',', ''); ?></div>
                                         <div class="row">
                                             R$&nbsp;<?php echo number_format($tmp['vl_flex'], 2, ',', ''); ?></div>
-                                        <div class="row" style="color: <?php echo ($vlFlex[0]['limite']-$vlFlex[0]['vl_flex']<0)?'red':'' ?>">
+                                        <div class="row" style="color: <?php echo ($tmp['limite']-$tmp['vl_flex']<0)?'red':'' ?>">
                                             R$&nbsp;<?php echo number_format($tmp['limite']-$tmp['vl_flex'], 2, ',', ''); ?></div>
                                     </div>
                                 </div>

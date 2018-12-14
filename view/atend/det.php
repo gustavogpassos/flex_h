@@ -185,7 +185,7 @@ if (isset($dados) && count($dados) > 1) {
                         <?php if ($dados['status'] == 1) { ?>
                             <a href="home.php?action=assumir&idflex=<?php echo $dados['cd_flex']; ?>"
                                class="btn btn-primary">Assumir</a>
-                        <?php } else if ($dados['status'] != 3 && $_SESSION['tp_usuario'] != 'regional') { ?>
+                        <?php } else if ($dados['status'] != 3) { ?>
                             <input type="submit" class="btn btn-primary" value="Gravar dados">
                         <?php } ?>
                     </div>
