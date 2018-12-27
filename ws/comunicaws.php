@@ -2,7 +2,19 @@
 
 
 //print_r($_GET);
+require_once 'webservice.php';
+$web = new Webservice();
 
+if(isset($_GET)){
+    echo $web->getSenhaWS($_GET);
+}
+
+
+
+
+
+
+/*
 $array = array(
     'filial_id' => $_GET['cd_filial'],
     'numero_pedido' => $_GET['nr_pedido'],
@@ -43,5 +55,5 @@ echo curl_exec($ch);
 
 
 //print_r(var_dump($response));
-
+*/
 ?>

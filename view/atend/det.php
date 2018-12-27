@@ -20,11 +20,11 @@ if (isset($dados) && count($dados) > 1) {
     <h6>Abertura <?php echo date('d/m/Y H:i', strtotime($dados['data_solicitacao'])); ?></h6>
     <?php //echo 'Responsável: '.$dados['nome']; ?>
     <hr/>
-    <div class="container">
+    <div class="container" style="padding: 0">
         <a href="home.php" class="btn btn-primary">Voltar</a>
 
         <hr/>
-        <div class="container">
+        <div class="container" style="padding: 0">
             <h4>Pedido número <?php echo $dados['nr_pedido']; ?></h4>
 
             <hr/>

@@ -15,6 +15,10 @@ span{
     text-align: right;
 }
 
+.container-det{
+    padding: 0 !important;
+}
+
 @media (max-width: 993px) {
     .tabprec{
         display: none;

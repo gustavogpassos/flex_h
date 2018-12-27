@@ -7,16 +7,19 @@
  */
 require_once "./model/lojaModel.php";
 require_once "./controller/adminController.php";
+require_once "./ws/webservice.php";
 
 class LojaController
 {
     private $model;
     private $admin;
+    private $ws;
 
     function __construct()
     {
         $this->model = new LojaModel();
         $this->admin = new AdminController();
+        $this->ws - new Webservice();
     }
 
     public function index()
