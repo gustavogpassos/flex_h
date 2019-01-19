@@ -19,7 +19,7 @@ class LojaController
     {
         $this->model = new LojaModel();
         $this->admin = new AdminController();
-        $this->ws - new Webservice();
+        $this->ws = new Webservice();
     }
 
     public function index()
@@ -33,7 +33,7 @@ class LojaController
                 $status = 3;
             }
         }
-        $this->admin->logs("Listando soliciatções da filial ".$_SESSION['cd_filial'], $_SESSION['cd_filial']);
+        //$this->admin->logs("Listando soliciatções da filial ".$_SESSION['cd_filial'], $_SESSION['cd_filial']);
         $listaFlex = $this->model->getFlexFilial($_SESSION['cd_filial'], $status);
         require "./view/loja/list.php";
     }
@@ -79,17 +79,28 @@ else if ($dados['dt_pedido'] != date('Y-m-d', time())) {
         unset($_POST['nr_tabpreco']);
         unset($_POST['vl_total']);
         unset($_POST['vl_desc']);
-        unset($_POST['nodesc']);
         if($cd_flex = $this->model->insertFlex($_POST)){
             if($this->model->insertprodutos($produtos,$cd_flex)){
                 //print_r($produtos);
+                //set_time_limit(10);
+                //$this->gravaMinimoCalc($produtos['cd_produto'],$cd_flex,$_POST['cd_filial']);
+                //set_time_limit(0);
                 echo "<script>window.alert('Solicitação registrada com sucesso!');</script>";
-                $this->admin->logs("Solicitacao ".$cd_flex." da filial ".$_SESSION['cd_filial']." registrada", $_SESSION['cd_filial']);
+                //$this->admin->logs("Solicitacao ".$cd_flex." da filial ".$_SESSION['cd_filial']." registrada", $_SESSION['cd_filial']);
                 $this->detalhe($cd_flex);
             }else{
                 $this->model->deleteFlex($cd_flex[0]);
                 echo "<script>window.alert('Não foi possível registrar a solicitação.Tente novamente.');</script>";
-                $this->admin->logs("Solicitacao ".$cd_flex." da filial ".$_SESSION['cd_filial']." não foi registrada", $_SESSION['cd_filial']);
+                //$this->admin->logs("Solicitacao ".$cd_flex." da filial ".$_SESSION['cd_filial']." não foi registrada", $_SESSION['cd_filial']);
+            }
+        }
+    }
+
+    public function gravaMinimoCalc($produtos, $cd_flex, $cd_filial){
+        foreach ($produtos as $cd_produto){
+            if($vl_min_calc = $this->ws->getPrecoMinWS(array('cd_filial'=>$cd_filial,'cd_produto'=>$cd_produto))){
+                print_r($vl_min_calc);
+                exit();
             }
         }
     }

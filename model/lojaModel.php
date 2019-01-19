@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Created by PhpStorm.
  * User: PC
@@ -97,6 +97,21 @@ class LojaModel extends Conexao
     }
 
 
+    public function gravaVlMinimo($cd_flex,$cd_produto,$vl_minimo_calc){
+        $update = "update flex_produtos set vl_minimo_calc=:vl_minimo where cd_flex=:cd_flex and cd_produto=:cd_produto";
+        $query = $this->flex->prepare($update);
+        $rs = $query->execute(array('vl_minimo'=>$vl_minimo_calc,'cd_flex'=>$cd_flex,'cd_produto'=>$cd_produto));
+
+        if($rs){
+            return true;
+        }else{
+            print_r($query->ErrorInfo());
+            return false;
+        }
+
+    }
+
+
     /**
      * exclui o registro da solicitação na tabela flex_formulario em caso de erro
      * ao realizar a gravação dos dados na tabela flex_produtos
@@ -119,14 +134,14 @@ class LojaModel extends Conexao
 
 
     /**
-     * retorna lista de solicitações de uma filial pelo status;
+     * retorna lista de solicitações de uma filial pelo status limitado a 500 registros;
      * Status : 1-Novo, 2-Em atendimento, 3-Encerrado;
      * @param $cdFilial
      * @return array
      */
     function getFlexFilial($cdFilial, $status)
     {
-        $select = "SELECT * FROM flex_formulario WHERE cd_filial=:cdFilial AND status=:status ORDER BY cd_flex DESC";
+        $select = "SELECT * FROM flex_formulario WHERE cd_filial=:cdFilial AND status=:status ORDER BY cd_flex DESC limit 500";
         $query = $this->flex->prepare($select);
         $query->execute(array('cdFilial' => $cdFilial, 'status' => $status));
         return $query->fetchAll();
@@ -175,9 +190,10 @@ class LojaModel extends Conexao
      * @return array
      *
      */
-    function getListaMotivos(){
+    function getListaMotivos()
+    {
         $select = "select * from flex_motivo where fl_ativo='S'";
-        $query  = $this->flex->query($select);
+        $query = $this->flex->query($select);
         return $query->fetchAll();
 
     }
@@ -239,7 +255,7 @@ class LojaModel extends Conexao
                         AND nf.nr_pedido=:pedido
                         AND nf.cd_filial=:cd_filial";
         $query = $this->filial->prepare($select);
-        $query->execute(array('pedido' => $nr_pedido,'cd_filial'=>$_SESSION['cd_filial']));
+        $query->execute(array('pedido' => $nr_pedido, 'cd_filial' => $_SESSION['cd_filial']));
         return $query->fetch();
     }
 
@@ -265,7 +281,7 @@ class LojaModel extends Conexao
                   AND nfsc.nr_pedido=:nr_pedido
                   AND nfsc.cd_filial=:cd_filial";
         $query = $this->filial->prepare($select);
-        $query->execute(array('nr_pedido' => $nr_pedido, 'cd_filial'=>$_SESSION['cd_filial']));
+        $query->execute(array('nr_pedido' => $nr_pedido, 'cd_filial' => $_SESSION['cd_filial']));
         return $query->fetchAll();
     }
 

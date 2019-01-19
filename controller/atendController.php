@@ -45,6 +45,9 @@ class AtendController
         if($_SESSION['tp_usuario'] == 'regional'){
             echo "<script>console.log('estou aqui');</script>";
             $vlFlex = $this->model->getValorFlex($_SESSION['cd_supefili']);
+            if($vlFlex[0]['limite']-$vlFlex[0]['vl_flex'] < 0){
+                $_SESSION['limite']=true;
+            }
         }else{
             echo "<script>console.log('Não, eu estou aqui');</script>";
             $vlFlex = $this->model->getValorFlex();

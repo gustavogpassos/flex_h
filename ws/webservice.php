@@ -50,6 +50,7 @@ class Webservice
 
     public function getPrecoMinWS($params)
     {
+        //set_time_limit(5);
         $array = array(
             'filial_id' => $params['cd_filial'],
             'produto_id' => $params['cd_produto']
@@ -57,7 +58,7 @@ class Webservice
 
         $json = json_encode($array);
 
-        $ch = curl_init('http://192.168.0.19/solidus/liberacao_desconto/busca_valores_minimos');
+        $ch = curl_init('http://192.168.0.19/solidus/liberacao_desconto/busca_valores_minimos/busca_valor_minimo_venda');
 
         curl_setopt($ch, CURLOPT_USERPWD, "webservice:112bcb0f6c4f37272b60cd570244e298");
 
@@ -75,6 +76,6 @@ class Webservice
 
         );
 
-        echo curl_exec($ch);
+        return curl_exec($ch);
     }
 }

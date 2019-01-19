@@ -138,7 +138,7 @@ if (isset($dados) && count($dados) > 1) {
                                                    value="<?php echo (stristr($value['nr_senha'], 'Negado')) ? "Negado" : number_format($value['nr_senha'], 2, '.', ''); ?>"
                                                    required=""></td>
                             <td class="tabprec"></td>
-                            <?php if ($dados['status'] == 2) { ?>
+                            <?php if (($dados['status'] == 2  && $_SESSION['tp_usuario']=='regional' && $_SESSION['limite']!=true)||($_SESSION['tp_usuario']!='regional' && $dados['status']==2)) { ?>
                                 <td>
                                     <button type="button" class="btn btn-success"
                                             onclick="gerasenha(<?php echo $key; ?>)">
@@ -182,7 +182,7 @@ if (isset($dados) && count($dados) > 1) {
                 </div>
                 <div class="row">
                     <div class="col-sm-3">
-                        <?php if ($dados['status'] == 1) { ?>
+                        <?php if (($dados['status'] == 1  && $_SESSION['tp_usuario']=='regional' && $_SESSION['limite']!=true)||($_SESSION['tp_usuario']!='regional' && $dados['status']==1)) { ?>
                             <a href="home.php?action=assumir&idflex=<?php echo $dados['cd_flex']; ?>"
                                class="btn btn-primary">Assumir</a>
                         <?php } else if ($dados['status'] != 3) { ?>

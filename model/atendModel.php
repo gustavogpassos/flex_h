@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Created by PhpStorm.
  * User: PC
@@ -15,7 +15,7 @@ class AtendModel extends Conexao
     }
 
     /**
-     * retorna lista de solicitações de todas as filiais pelo status;
+     * retorna lista de solicitações de todas as filiais pelo status limitado a 1000 resultados;
      * Status : 1-Novo, 2-Em atendimento, 3-Encerrado;
      * @param $cdFilial
      * @return array
@@ -24,13 +24,13 @@ class AtendModel extends Conexao
     {
         $param = array('status' => $status);
         if (isset($_SESSION['cd_usuario']) && $_SESSION['tp_usuario'] == 'regional' && $filiais != 0) {
-            $select = "SELECT * FROM flex_formulario WHERE status=:status and cd_filial in (" . $filiais . ") ORDER BY cd_flex DESC";
+            $select = "SELECT * FROM flex_formulario WHERE status=:status and cd_filial in (" . $filiais . ") ORDER BY cd_flex DESC limit 1000";
         } else {
             if ($status == 2) {
-                $select = "SELECT * FROM flex_formulario WHERE status=:status and cd_atendente=:cd_usuario ORDER BY cd_flex DESC";
+                $select = "SELECT * FROM flex_formulario WHERE status=:status and cd_atendente=:cd_usuario ORDER BY cd_flex DESC limit 1000";
                 $param['cd_usuario'] = $_SESSION['cd_usuario'];
             } else {
-                $select = "SELECT * FROM flex_formulario WHERE status=:status ORDER BY cd_flex DESC";
+                $select = "SELECT * FROM flex_formulario WHERE status=:status ORDER BY cd_flex DESC limit 1000";
             }
         }
 
